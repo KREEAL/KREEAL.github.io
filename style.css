@@ -1,0 +1,179 @@
+body {
+  background: url("dust2.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+}
+/* html {
+  /*cursor: url("crosshair.cur"), default;*/
+/* cursor: url("target1.png") 32 32, default;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
+} */
+.gamecontainer {
+  cursor: url("target1.png") 32 32, default;
+}
+.standart {
+  width: 100px;
+  height: 125px;
+  position: absolute;
+}
+
+.slide-top {
+  animation: slide-top 0.3s linear both;
+}
+@keyframes slide-top {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-125px);
+  }
+}
+/* 
+img {
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+} */
+
+.slide_to_up {
+  animation: slide-rotate-hor-b-bck 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
+}
+
+@keyframes slide-rotate-hor-b-bck {
+  0% {
+    transform: translateY(0px) translateZ(-230px) rotateX(90deg);
+    transform-origin: bottom center;
+  }
+  100% {
+    transform: translateY(0) translateZ(0) rotateX(0deg);
+    transform-origin: bottom center;
+  }
+}
+
+.slide_to_down {
+  animation: slide-rotate-hor-b-down 1s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    both;
+}
+
+@keyframes slide-rotate-hor-b-down {
+  0% {
+    transform: translateY(0) translateZ(0) rotateX(0deg);
+    transform-origin: bottom center;
+  }
+  100% {
+    transform: translateY(0px) translateZ(-230px) rotateX(90deg);
+    transform-origin: bottom center;
+  }
+}
+
+.bulletstray {
+  display: flex;
+  flex-direction: column-reverse;
+  position: absolute;
+}
+
+.bulletstray img {
+  margin: 2px;
+}
+
+.score {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  left: 1450px;
+  font-size: 50px;
+}
+
+.scoreshow {
+  font-size: 40px;
+  color: black;
+  display: inline-block;
+  margin: 5px;
+}
+
+.clickableback {
+  width: calc(100%);
+  height: calc(100%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.guys {
+  position: absolute;
+}
+
+.fire {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+}
+.healthbar {
+  position: absolute;
+  display: inline;
+  left: 80px;
+}
+.currentHealth {
+  font-size: 40px;
+  padding: 0;
+  margin: 0;
+  color: wheat;
+  top: 400px;
+}
+
+.newgame {
+  width: 500px;
+  height: 500px;
+  border-radius: 50px;
+  background-image: url(newgamelogo.png);
+  position: absolute;
+  left: calc(35%);
+  top: calc(15%);
+}
+
+/* .goButton {
+  position: absolute;
+  left: 400px;
+  top: 400px;
+} */
+
+.goButton {
+  color: rgb(255, 255, 255);
+  font-size: 26px;
+  line-height: 26px;
+  padding: 21px;
+  border-radius: 15px;
+  font-family: Georgia, serif;
+  font-weight: normal;
+  text-decoration: none;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  background-image: linear-gradient(
+    to right,
+    rgb(28, 110, 164) 0%,
+    rgb(35, 136, 203) 50%,
+    rgb(20, 78, 117) 100%
+  );
+  box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+  border: 2px solid rgb(28, 110, 164);
+
+  position: absolute;
+
+  top: 400px;
+  width: 80%;
+  left: calc(10%);
+}
+.goButton:hover {
+  background: #1c6ea4;
+}
+.goButton:active {
+  background: #144e75;
+}

@@ -4,9 +4,115 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CS:GO</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
   </head>
   <body>
-    <h3>hello,world</h3>
+    <div class="gamecontainer" id="gamecontainer1">
+      <div class="clickableback"></div>
+      <div class="healthbar">
+        <img src="cardiogram.png" alt="HEALTH" class="heart" />
+        <h3 class="currentHealth" id="health">100</h3>
+      </div>
+      <div class="bulletstray" id="bulletstray"></div>
+      <div class="score">
+        <p class="scoreshow" id="CurrentScore">0</p>
+        <p class="scoreshow" id="HighScore">0</p>
+      </div>
+      <div class="guys" id="guys"></div>
+    </div>
+    <div class="newgame">
+      <button class="goButton" onclick="startNewGame()">GO</button>
+      <h3 style="position: absolute; margin: 40px; color: white">
+        Your last score:
+      </h3>
+      <h3
+        style="position: absolute; color: white; left: 180px; top: 22px"
+        id="lastScore"
+      >
+        0
+      </h3>
+      <h3 style="position: absolute; margin: 40px; color: white; top: 40px">
+        Your high score:
+      </h3>
+      <h3
+        style="position: absolute; color: white; left: 180px; top: 62px"
+        id="jopa"
+      >
+        0
+      </h3>
+    </div>
+
+    <script>
+      function startNewGame() {
+        reload();
+        let menu = document.getElementsByClassName("newgame");
+        menu[0].style.display = "none";
+        health = 100;
+        scoreInt = 0;
+        let score = document.getElementById("CurrentScore");
+        score.textContent = scoreInt;
+        let healthPoint = document.getElementById("health");
+        healthPoint.textContent = health;
+
+        for (let i = 0; i < shoot_intervals.length - 1; i++) {
+          clearInterval(shoot_intervals[i]);
+        }
+        shoot_intervals = new Array();
+
+        // removeguys();
+
+        plaseToPositions();
+      }
+    </script>
+
+    <!-- Реагирование на клик в принципе -->
+    <script>
+      const gamee = document.getElementById("gamecontainer1");
+      const bulletstray = document.getElementById("bulletstray");
+      document.addEventListener("DOMContentLoaded", function () {
+        gamee.addEventListener("click", function (event) {
+          if (canShoot()) {
+            bulletstray.removeChild(bulletstray.lastChild);
+          } else {
+            console.log("ПЕРЕЗАРЯДИТЬСЯ!");
+          }
+        });
+      });
+
+      //Установка всех челиксов по местам
+    </script>
+
+    <!-- Добавление реакции на клик по террористу -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        gamee.addEventListener("click", function (event) {
+          let target = event.target;
+          if (target.classList[0] === "standart" && canShoot()) {
+            defeat_enemy(target);
+            // setTimeout(function () {
+            //   respawnDead();
+            // }, 5000);
+            //respawn_enemy(target);
+          }
+        });
+      });
+    </script>
+
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.code == "KeyR") {
+          console.log();
+          if (bulletstray.childElementCount < 10 && !isReloading) {
+            reload();
+          }
+        }
+      });
+    </script>
+
+    <script>
+      // reload();
+    </script>
   </body>
 </html>
