@@ -56,14 +56,14 @@
         let healthPoint = document.getElementById("health");
         healthPoint.textContent = health;
 
-        for (let i = 0; i < shoot_intervals.length - 1; i++) {
-          clearInterval(shoot_intervals[i]);
-        }
-        shoot_intervals = new Array();
+        isReloading = false;
 
-        // removeguys();
-
+        // for (let i = 0; i < shoot_intervals.length - 1; i++) {
+        //   clearInterval(shoot_intervals[i]);
+        // }
+        // shoot_intervals = new Array();
         plaseToPositions();
+        // removeguys();
       }
     </script>
 
@@ -103,10 +103,13 @@
     <script>
       document.addEventListener("keydown", function (event) {
         if (event.code == "KeyR") {
-          console.log();
+          console.log("Вы нажали кнопку R");
           if (bulletstray.childElementCount < 10 && !isReloading) {
             reload();
-            console.log("brrr");
+            setTimeout(function () {
+              isReloading = false;
+            }, 2000);
+            console.log("AAAA");
           }
         }
       });

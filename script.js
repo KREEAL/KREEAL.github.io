@@ -91,6 +91,11 @@ function defeat_enemy(enemy) {
   }
 
   score.textContent = scoreInt;
+
+  setTimeout(function () {
+    respawnDead();
+  }, 5000);
+  // respawn_enemy(target);
 }
 
 function getRandomImg() {
@@ -179,6 +184,7 @@ function reload() {
 }
 
 function reloadBullets(bullets_quantity) {
+  console.log("Вызван reloadingBullets");
   isReloading = true;
   console.log("AUFFF");
   let bulletstray = document.getElementById("bulletstray");
